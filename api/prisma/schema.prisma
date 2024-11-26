@@ -16,6 +16,7 @@ datasource db {
 model Drivers {
   Id        Int     @id @default(autoincrement())
   Nome      String
+  Photo     String
   Descricao String?
   Carro     String?
   Avaliacao Float?

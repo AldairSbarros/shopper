@@ -1,4 +1,17 @@
 -- CreateTable
+CREATE TABLE "Drivers" (
+    "Id" SERIAL NOT NULL,
+    "Nome" TEXT NOT NULL,
+    "Descricao" TEXT,
+    "Carro" TEXT,
+    "Avaliacao" DOUBLE PRECISION,
+    "Taxa" DOUBLE PRECISION,
+    "KmMinimo" DOUBLE PRECISION,
+
+    CONSTRAINT "Drivers_pkey" PRIMARY KEY ("Id")
+);
+
+-- CreateTable
 CREATE TABLE "Trips" (
     "Id" SERIAL NOT NULL,
     "CustomerId" TEXT NOT NULL,

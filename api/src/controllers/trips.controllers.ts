@@ -49,6 +49,7 @@ export const estimateTrip = async (
       return {
         id: driver.Id,
         nome: driver.Nome,
+        photo: driver.Photo,
         descricao: driver.Descricao,
         carro: driver.Carro,
         avaliacao: driver.Avaliacao,
