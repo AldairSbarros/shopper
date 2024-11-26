@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { TripForm } from "./components/TripForm";
@@ -27,9 +28,16 @@ interface Trip {
   distancia: string;
   tempo: string;
   valor: number;
+  origin: Location;
+  destination: Location;
 }
 
-// Definir o elemento do App para o Modal
+interface Location {
+  lat: number;
+  lng: number;
+}
+
+
 Modal.setAppElement('#root');
 
 const App = () => {
@@ -43,7 +51,7 @@ const App = () => {
     const fetchDrivers = async () => {
       try {
         const response = await axios.get('http://localhost:8080/drivers');
-        console.log('Motoristas disponíveis:', response.data); // Adicionei este console.log para verificar os dados
+        
         setDrivers(response.data);
       } catch (error) {
         console.error('Erro ao buscar motoristas:', error);
@@ -70,14 +78,16 @@ const App = () => {
 
   const selectDriver = (driver: Driver) => {
     const newTrip = {
-      id: driver.id,
+      id: uuidv4(),
       dataHora: new Date().toLocaleString(),
       motorista: driver.nome,
       origem: "Origem Exemplo",
       destino: "Destino Exemplo",
       distancia: "10 km",
       tempo: "20 mins",
-      valor: driver.valorTotal
+      valor: driver.valorTotal,
+      origin: { lat: -3.0598683, lng: -60.0444871 }, // Exemplo de coordenadas de origem
+      destination: { lat: -3.1212906, lng: -60.00565849999999 } // Exemplo de coordenadas de destino
     };
     const updatedTrips = [...trips, newTrip];
     setTrips(updatedTrips);
@@ -97,7 +107,14 @@ const App = () => {
       {!showHistory ? (
         <>
           <TripForm openModal={openModal} setDrivers={setDrivers} />
-          <ModalDrivers isOpen={modalIsOpen} onRequestClose={closeModal} drivers={drivers} onSelectDriver={selectDriver} />
+          <ModalDrivers
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            drivers={drivers}
+            onSelectDriver={selectDriver}
+            origin={{ lat: -3.0598683, lng: -60.0444871 }} // Exemplo de coordenadas de origem
+            destination={{ lat: -3.1212906, lng: -60.00565849999999 }} // Exemplo de coordenadas de destino
+          />
         </>
       ) : (
         <TripsHistory trips={trips} goToHome={goToHome} />

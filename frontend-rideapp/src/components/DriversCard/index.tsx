@@ -14,7 +14,7 @@ export const DriversCard: React.FC<DriversProps> = ({ id, nome, photo, descricao
   return (
     <li>
       <h3>Nome: {nome}</h3>
-      <img src={photo} alt={`Foto do Motorista ${nome}`} />
+      <img src={photo} alt={`Foto do Motorista ${nome}`} style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
       <h4>Descrição: {descricao}</h4>
       <h4>Veículo: {carro}</h4>
       <h4>Avaliação: {avaliacao}</h4>
