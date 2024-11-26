@@ -11,6 +11,7 @@
     border-radius: 10px; /* Border-radius */
     padding: 20px;
     width: 80%;
+    margin-top: 30px;
     max-width: 600px; /* Tamanho do modal */
     position: absolute;
     z-index: 1001; /* Camada superior */
@@ -25,7 +26,8 @@
   .mapContainer {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-top: 3.875rem;
+    
   }
   
   .map {

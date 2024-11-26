@@ -1,5 +1,7 @@
 
+
 // import React, { useState } from 'react';
+// import styles from './styles.module.scss';
 
 // interface Trip {
 //   id: string;
@@ -29,10 +31,14 @@
 //     }
 //   };
 
+//   const handleDelete = (id: string) => {
+//     setFilteredTrips(filteredTrips.filter((trip) => trip.id !== id));
+//   };
+
 //   return (
-//     <div>
+//     <div className={styles.historyContainer}>
 //       <h2>Histórico de Viagens</h2>
-//       <div>
+//       <div className={styles.filterContainer}>
 //         <label htmlFor="driver">Motorista:</label>
 //         <select id="driver" onChange={(e) => setSelectedDriver(e.target.value)}>
 //           <option value="">Todos</option>
@@ -40,11 +46,11 @@
 //             <option key={motorista} value={motorista}>{motorista}</option>
 //           ))}
 //         </select>
-//         <button onClick={handleFilter}>Aplicar Filtro</button>
+//         <button onClick={handleFilter} className={styles.filterButton}>Aplicar Filtro</button>
 //       </div>
-//       <ul>
+//       <ul className={styles.tripList}>
 //         {filteredTrips.map((trip) => (
-//           <li key={trip.id}>
+//           <li key={trip.id} className={styles.tripCard}>
 //             <p>Data e Hora: {trip.dataHora}</p>
 //             <p>Motorista: {trip.motorista}</p>
 //             <p>Origem: {trip.origem}</p>
@@ -52,10 +58,11 @@
 //             <p>Distância: {trip.distancia}</p>
 //             <p>Tempo: {trip.tempo}</p>
 //             <p>Valor: R$ {trip.valor.toFixed(2)}</p>
+//             <button onClick={() => handleDelete(trip.id)} className={styles.deleteButton}>Excluir</button>
 //           </li>
 //         ))}
 //       </ul>
-//       <button onClick={goToHome} style={{ marginTop: '20px', padding: '10px 20px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+//       <button onClick={goToHome} className={styles.backButton}>
 //         Voltar para o Início
 //       </button>
 //     </div>
@@ -63,6 +70,7 @@
 // };
 
 // export default TripsHistory;
+
 
 
 import React, { useState } from 'react';
@@ -87,12 +95,15 @@ interface TripsHistoryProps {
 const TripsHistory: React.FC<TripsHistoryProps> = ({ trips, goToHome }) => {
   const [selectedDriver, setSelectedDriver] = useState<string | null>(null);
   const [filteredTrips, setFilteredTrips] = useState<Trip[]>(trips);
+  const [userId, setUserId] = useState<string>('');
 
-  const handleFilter = () => {
-    if (selectedDriver) {
-      setFilteredTrips(trips.filter((trip) => trip.motorista === selectedDriver));
-    } else {
-      setFilteredTrips(trips);
+  const handleFilter = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/ride/history?userId=${userId}`);
+      const data = await response.json();
+      setFilteredTrips(data.trips);
+    } catch (error) {
+      console.error('Erro ao buscar histórico de viagens:', error);
     }
   };
 
@@ -104,6 +115,13 @@ const TripsHistory: React.FC<TripsHistoryProps> = ({ trips, goToHome }) => {
     <div className={styles.historyContainer}>
       <h2>Histórico de Viagens</h2>
       <div className={styles.filterContainer}>
+        <label htmlFor="userId">ID do Usuário:</label>
+        <input
+          type="text"
+          id="userId"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
+        />
         <label htmlFor="driver">Motorista:</label>
         <select id="driver" onChange={(e) => setSelectedDriver(e.target.value)}>
           <option value="">Todos</option>
@@ -127,9 +145,11 @@ const TripsHistory: React.FC<TripsHistoryProps> = ({ trips, goToHome }) => {
           </li>
         ))}
       </ul>
-      <button onClick={goToHome} className={styles.backButton}>
-        Voltar para o Início
-      </button>
+      <div className={styles.backButtonContainer}>
+        <button onClick={goToHome} className={styles.backButton}>
+          Voltar para o Início
+        </button>
+      </div>
     </div>
   );
 };
