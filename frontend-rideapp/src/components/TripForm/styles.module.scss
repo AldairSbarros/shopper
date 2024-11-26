@@ -1,0 +1,115 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  margin-top: 16.75rem; /* Espaço abaixo do header */
+  border: 0.125rem solid;
+  border-color: #fff;
+  border-radius: .625rem;
+  width: 33%; /* Largura do formulário */
+  max-width: 100%; /* Largura máxima do formulário */
+  padding: 1.25rem; /* Espaço interno do formulário */
+  background-color: #fff;
+}
+
+.button {
+  width: 80%;
+  max-width: 37.5rem;
+  padding: .625rem;
+  margin: 1.25rem 0;
+  border: .125rem solid #fff; /* Borda branca */
+  border-radius: .625rem; /* Border-radius */
+  background-color: #4caf50; /* Cor de fundo verde clara */
+  color: #fff; /* Cor da fonte */
+  font-size: 1rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+h2 {
+  color: hsl(116, 92%, 15%); /* Cor da fonte */
+  font-weight: 500;
+  margin-bottom: 20px;
+  align-items: flex-end;
+  
+}
+
+p{
+  color: hsl(116, 92%, 15%);
+}
+
+@media (max-width: 600px) {
+    body {
+      font-size: 14px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .container {
+      padding: 10px;
+    }
+    .button {
+      width: 100%;
+      padding: 10px;
+    }
+  } /* Estilos para tablets */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    body {
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 18px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .button {
+      width: 80%;
+      padding: 15px;
+    }
+  } /* Estilos para desktops */
+  @media (min-width: 1025px) {
+    body {
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 20px;
+    }
+    .container {
+      padding: 30px;
+    }
+    .button {
+      width: 60%;
+      padding: 20px;
+    }
+  }
+  

@@ -1,0 +1,83 @@
+.modalOverlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro e transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Camada superior */
+  }
+  
+  .modalContent {
+    background-color: #fff;
+    border-radius: 10px; /* Border-radius */
+    padding: 20px;
+    width: 80%;
+    max-width: 600px; /* Tamanho do modal */
+    position: absolute;
+    z-index: 1001; /* Camada superior */
+  }
+  
+  .modalTitle {
+    color: #2e7d32; /* Verde escuro */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .mapContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .map {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .driverList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .driverItem {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .selectButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgb(6, 88, 24);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .closeButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 600px) {
+    .modalContent {
+      width: 90%; /* Ajusta a largura para dispositivos móveis */
+    }
+  
+    .map {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .selectButton, .closeButton {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+  

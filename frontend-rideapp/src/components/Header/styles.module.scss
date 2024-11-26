@@ -1,0 +1,99 @@
+.header {
+    background-color: #fff; /* Cor de fundo */
+    color: #023609; /* Cor da fonte */
+    border: 2px solid hsl(150, 89%, 17%); /* Borda branca */
+    border-radius: 10px; /* Border-radius */
+    padding: 20px;
+    text-align: center;
+    margin: 1.25rem auto; /* Centralizado horizontalmente */
+    width: 80%; /* Largura do header */
+    max-width: 37.5rem; /* Largura máxima do header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar destaque */
+  
+    /* Centralizado verticalmente */
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    h1{
+        color: hsl(133, 95%, 14%);
+        font-weight: 800;
+    }
+  }
+  
+
+  
+@media (max-width: 600px) {
+    body {
+      font-size: 14px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .container {
+      padding: 10px;
+    }
+    .button {
+      width: 100%;
+      padding: 10px;
+    }
+  } /* Estilos para tablets */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    body {
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 18px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .button {
+      width: 80%;
+      padding: 15px;
+    }
+  } /* Estilos para desktops */
+  @media (min-width: 1025px) {
+    body {
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 20px;
+    }
+    .container {
+      padding: 30px;
+    }
+    .button {
+      width: 60%;
+      padding: 20px;
+    }
+  }
+  

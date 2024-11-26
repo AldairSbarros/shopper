@@ -1,0 +1,29 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 37.5rem; /* Largura máxima do input */
+    margin: 1.25rem auto; /* Centralizado horizontalmente */
+  }
+  
+  .label {
+    color: hsl(133, 95%, 14%); /* Cor da fonte */
+    margin-bottom: .625rem;
+    font-size: 1.125rem;
+    margin-right: auto;
+    
+  }
+  
+  .input {
+    width: 100%; /* Largura do input */
+    padding: .625rem;
+    border: .125rem solid #4CAF50; /* Borda verde clara */
+    border-radius: .625rem; /* Border-radius */
+    background-color: hwb(120 88% 7%); /* Cor de fundo verde clara */
+    color: hsl(150, 92%, 14%); /* Cor da fonte */
+    font-size: 1rem;
+    font-weight: 500;
+    box-sizing: border-box;
+  }
+  
