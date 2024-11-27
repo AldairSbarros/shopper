@@ -1,0 +1,43 @@
+
+
+services:
+  api:
+    build:
+      context: ./api  # Caminho correto
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=db  # Altere para "db" porque no Docker Compose ele resolve pelo nome do serviço
+      - DB_PORT=5432
+      - DB_USER=aldai
+      - DB_PASSWORD=1234
+      - DB_NAME=shopper_db
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend-rideapp
+      dockerfile: Dockerfile  # Adicione esta linha, caso esteja faltando no diretório frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    environment:
+      - REACT_APP_API_URL=http://api:8080  # API resolve automaticamente pelo nome do serviço "api"
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=aldai
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=shopper_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
+    driver: local

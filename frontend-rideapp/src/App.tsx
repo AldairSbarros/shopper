@@ -43,7 +43,7 @@ Modal.setAppElement('#root');
 const App = () => {
   const [drivers, setDrivers] = useState<Driver[]>([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedDriver, setSelectedDriver] = useState<Driver | null>(null);
+  
   const [trips, setTrips] = useState<Trip[]>([]);
   const [showHistory, setShowHistory] = useState(false);
 
@@ -92,7 +92,7 @@ const App = () => {
     const updatedTrips = [...trips, newTrip];
     setTrips(updatedTrips);
     localStorage.setItem('trips', JSON.stringify(updatedTrips));
-    setSelectedDriver(driver);
+    
     closeModal();
     setShowHistory(true);
   };

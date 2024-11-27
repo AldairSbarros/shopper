@@ -10,6 +10,7 @@ interface DriversProps {
   avaliacao: number;
   taxa: number;
   kmMinimo: number;
+  valorTotal: number;
 }
 
 export const DriverList: React.FC = () => {
@@ -50,9 +51,9 @@ export const DriverList: React.FC = () => {
           descricao={driver.descricao}
           carro={driver.carro}
           avaliacao={driver.avaliacao}
-          taxa={driver.taxa}
-          kmMinimo={driver.kmMinimo}
-        />
+                 
+          valorTotal={driver.valorTotal}
+                 />
       ))}
     </ul>
   );

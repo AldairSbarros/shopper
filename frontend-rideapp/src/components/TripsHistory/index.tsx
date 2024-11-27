@@ -93,7 +93,7 @@ interface TripsHistoryProps {
 }
 
 const TripsHistory: React.FC<TripsHistoryProps> = ({ trips, goToHome }) => {
-  const [selectedDriver, setSelectedDriver] = useState<string | null>(null);
+  
   const [filteredTrips, setFilteredTrips] = useState<Trip[]>(trips);
   const [userId, setUserId] = useState<string>('');
 
@@ -110,6 +110,10 @@ const TripsHistory: React.FC<TripsHistoryProps> = ({ trips, goToHome }) => {
   const handleDelete = (id: string) => {
     setFilteredTrips(filteredTrips.filter((trip) => trip.id !== id));
   };
+
+  function setSelectedDriver(_value: string): void {
+    throw new Error('Function not implemented.');
+  }
 
   return (
     <div className={styles.historyContainer}>

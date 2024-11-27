@@ -9,9 +9,10 @@ interface DriversProps {
   carro: string;
   avaliacao: number;
   valorTotal: number;
+  
 }
 
-export const DriversCard: React.FC<DriversProps> = ({ id, nome, photo, descricao, carro, avaliacao, valorTotal }) => {
+export const DriversCard: React.FC<DriversProps> = ({ nome, photo, descricao, carro, avaliacao, valorTotal }) => {
   return (
     <li className={styles.card}>
       <h3 className={styles.nome}>Nome: {nome}</h3>
@@ -21,6 +22,8 @@ export const DriversCard: React.FC<DriversProps> = ({ id, nome, photo, descricao
         <h4>Veículo: {carro}</h4>
         <h4>Avaliação: {avaliacao}</h4>
         <h4>Valor da Viagem: R$ {valorTotal.toFixed(2)}</h4>
+       
+        
       </div>
     </li>
   );
