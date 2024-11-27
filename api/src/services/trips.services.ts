@@ -2,7 +2,7 @@ import axios from "axios";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient
-const apiKey = "AIzaSyBT7Adutv_LO28oR454JmCKTvxtt4ZTGmQ";
+const apiKey = "GOOGLE_API_KEY";
 
 export const getCordinates = async (address: string) => {
   const response = await axios.get(
